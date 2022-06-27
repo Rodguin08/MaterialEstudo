@@ -1,0 +1,180 @@
+Seleção por id
+
+Para utilizar id's, vá dentro da tag e digite id="nome-do-id"
+<p id="especificacoes">
+
+Para estilizar a id dentro do <style> utilize #
+
+
+
+
+
+Seleção por classe
+
+Para utilizar classes, vá para dentro da tag que deseja definir a classe, digite: class="nome da classe"
+<p class="nome da classe"> 
+
+para estilizar a classe dentro do <style> utilize .
+
+Tudo que for estilizado na classe, vai ser aplicado que tudo que utiliza-la
+
+
+
+
+
+
+Link
+
+para criar um hyperlink utilize: <a href="url">Saiba Mais</a>
+para abrir o link em uma nova pagina utilize:<a target="_blank"href="url">Saiba Mais</a>
+
+se voce quiser utilizar o link para rolar a pagina ate um ponto, utilize:href="#id-da-sessão"
+
+
+
+
+Tabelas
+
+<table>
+	<tHead>					Cabeçalho
+		<tr> 				utilizado para cada linha na tabela, nesse caso no cabeçalho
+			<th>coluna1</th>	para apenas 1 celula de cabeçalho
+			<th>coluna2</th>
+			<th>coluna3</th>
+		</tr>
+
+	</tHead>
+	<tbody>					linhas
+		<tr>				nova linha
+			<td>item1</td>		+linha
+			<td>item2</td>
+			<td>item3</td>
+		</tr>
+
+
+	</tbody>
+</table>
+
+
+
+
+
+Comentario no html
+
+
+<!-- isso o navegador não lê -->
+
+
+
+Font-Family
+
+background-color: rgb(0, 0, 255);
+font-family: "Helvetica", sans-serif;		utilize dentro do style
+helvetica e o nome da fonte que deve ser encontrado em seu computador
+sans-serif é o plano b, caso nao encontre a helvetica
+para letras maiusculas utilize: font-family: cursive
+
+Font-Size
+a font-size é aplicada dentro de style, geralmente com a tag body
+para utilizar o font-size use: body {font-size: 12px;}
+existem varias medidas além de px, como o "em" 
+"em" é utilizado para definir uma fonte com determinada proporção em relação ao tamanho do corpo
+por exemplo: h2{font-size: 1.5em;}
+
+
+Font-style / Font-weight
+Para tornar um paragrafo em negrito ou italico, não se deve coloca=lo dentro de strong ou em, pois sobrecarrega o navegador
+utilize font-style:italic; dentro da classe do paragrafo em italico
+e use font-weight: bold; para negrito
+
+
+Mais propriedades de texto CSS
+Para mudar a distancia entre as linhas utilize: line-heigh: 15px;
+Para mudar o alinhamento do paragrago na pagina, utilize: tet-align: center/justified/left/right;
+Para sublinhar um paragrago, utilize: text-decoration: underline;
+Para remover o sublinhado em um link, utilize: text-decoration: none;
+
+
+
+Layout CSS
+
+Elementos de agrupamento
+Div e span
+o Div é utilizado para agrupar varios elementos dentro dele, assim colocando uma id e estilizando da forma que quiser
+o span é utilizado apenas em palavras, para selecionar apenas a palavra dentro de uma frase para assim colocar um id e estilizar
+block existe no div, ele cria um bloco para ser estilizado
+inline existe no span ,ele cria uma nova linha sem necessidade do br
+
+width, height e overflow
+largura, altura, overflow
+a largura, width é um elemento de formatação do texto
+a altura, height também é um elemento de formatação no texto
+o overflow é para quando um texto se sobrepõe a outro e cria a barra de rolagem, seu valor padrão é visible, mas existem auto e hidden.
+da mesma forma, voce pode alterar o x e o y do overflow com overflow-x
+
+
+
+Margin no css:
+para modificar o tamanho das margens no css, pode ser utilizado o comando margin: 15px; ou margin: 15px, 0px, 0px, 0px; para todas as direções de uma vez, tambem com o comando auto
+temos o border, para aplicar as bordas na tag do elemento, existem alguns tipos de border, como right, double... da mesma forma pode-se utilizar o comando unico com border-top...
+margin margem, parte de fora
+border borda, parte do meio
+padding enchimento, parte de dentro 
+						
+
+
+Position
+position: absolute;			posição relativa á, temos absolute, relative, fixed
+            top: 20px;
+            left: 10px;			valores de mudança da posução do elemento
+            z-index: 1;			é utilizado como camadas, a ordem de exibição dos elementos, quanto maior o valor, mais em cima ficará
+
+
+Elemento float
+Float é utilizado para flutuar elementos dentro da pagina, geralmente imagens
+por exemplo: float: left; tambem possui right, top, bottom
+para modificar o float, utilize margin para posiciona-lo melhor na pagina
+caso o elemento esteja sobrepondo algo, utilize clear: right; ou left, ou both
+
+
+
+MAIS SELETORES CSS
+varias classes css
+no css é possivel utilizar mais de uma classe em cada elemento, por exemplo < p class="titulo especificacoes">, dessa forma, p pode ser formatado utilizando titulo, ou aviso, caso necessario
+
+
+
+SELETORES CSS DESCENDENTES
+Agrupamento de seletores css
+Para agrupar seletores css, apenas adicione uma virgula após o primeiro seletor, por exemplo:
+h1, h2 {
+background-color: red;
+}
+
+
+
+
+Pseudoclasses CSS
+As pseudoclasses são funções predefinidas pelo navegador, que executam uma função quando acionadas, sempre acompanhadas da tag "a", pois são funções aplicadas em links
+por exemplo:
+a hover: quando voce passa o mouse em cima do link com essa pseudoclasse, o plano de fundo 
+voce pode saber mais pesquisando sobre no Google
+						
+
+Especificidades
+As especificidades são a ordem que o navegador prioriza os comandos, se existem varias tags no style, ele vai priorizar sempre a ultima, e a que se encaixa melhor na especificação do conteudo
+O navegador possui uma ordem de especificidade, da menos especifica pra mais:
+1º h1
+2º .importante
+3º h2.importante
+4º #importante
+
+Validação
+Para que você tenha certeza que sua página não possui erros, vá para a ferramenta de validação na w3c, para 
+
+
+
+
+
+
+

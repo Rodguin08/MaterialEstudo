@@ -1,0 +1,24 @@
+Quantifier
+? - zero ou uma vez.
+* - zero ou mais vezes.
++ - uma ou mais vezes.
+{n} - exatamente n vezes.
+{n,} - no mínimo n vezes.
+{n,m} - no mínimo n vezes, no máximo m vezes.
+
+. é qualquer caractere
+\t é um tab.
+\r é carriage return.
+\n é newline.
+\f é form feed.
+\s significa whitespace e é um atalho para [ \t\r\n\f].
+\w significa word char e é uma atalho para [A-Za-z0-9_].
+\b é uma âncora que seleciona um word boundary, isso é o início ou fim da palavra. "Aqui não pode ter um word-char." seleciona uma palavra sozinha
+\B é o contrario do \b, pois precisa ter um wordchar em volta.
+^ é uma âncora que seleciona o início da string alvo.
+$ é uma âncora que seleciona o fim do alvo.
+
+Groups
+( ) cria um grupo na regex
+(?: )cria um grupo mas não exibe na regex engine, non capturing group
+\1 referencia a um grupo ja passado

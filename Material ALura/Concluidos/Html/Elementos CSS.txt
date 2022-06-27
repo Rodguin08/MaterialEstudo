@@ -1,0 +1,88 @@
+19:56 09/06/2022Margin --> Border --> Padding --> Content
+
+as direções são aplicadas em sentido horario
+
+Padding
+são as bordas do conteudo, a margem dentro da border
+padding: top, right, bottom, left; 	ou
+padding: top, right/left, bottom;	assim, com os mesmos valores para as laterais
+padding: top/bottom, right/left;	assim, com os mesmos valores para cima e baixo também
+padding: 10px;				assim, com os mesmos valores para todos os lados
+
+padding-top; 10px:
+padding-right; 10px:
+padding-bottom; 10px:
+padding-left; 10px:
+
+
+Border
+são as bordas do conteudo, literalmente bordas, possuem varios estilos, e várias propriedades
+necessita de 3 propriedades:
+border: width, style, color;
+border-radius: 10px;			transforma os cantos da borda arredondados
+
+
+Margin
+cria espaço em volta dos elementos
+margin: top, right, bottom, left;
+
+
+
+
+
+
+
+
+tudo sobre flexbox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+
+
+medidas
+100vh			100% do espaço disponivel da pagina, 100% view height.
+
+
+
+border
+margin
+allign item
+float
+
+Flexbox
+https://www.alura.com.br/artigos/css-guia-do-flexbox
+https://cursos.alura.com.br/extra/alura-mais/css-flexbox-distribua-elementos-de-forma-responsiva-c301
+
+display: flex;  		deve ser aplicado ao pai do elemento que deseja modificar
+align items
+
+
+
+display: inline;
+permite que se posicionem um do lado do outro, mas nao aceita modificação com width e height
+
+display: inline-block;
+permite que se posicionem um do lado do outro, e aceita modificar width e height, mas é dificil alterar espaçamentos, sendo necessario margins e contas
+
+float: left/right;
+ele flutua os elementos para o lado e os elementos de baixo sobem, nao permite vertical-allign:middle; 
+
+display: flex;
+permite posicionar um do lado do outro, permite espaçar intuitivamente sem calculos, e permite alinhar verticalmente facil
+
+
+
+justify-content: flex-end;
+joga todo o espaço pra esquerda, com o conteudo pra direita
+
+justify-content: flex-start;
+joga todo o espaço pra direita, com o conteudo pra esquerda (padrão)
+
+justify-content: center;
+joga todo o espaço pros lados, com o conteudo pro meio
+
+justify-content: space-between;
+joga todo o espaço no meio, com o conteudo nas laterais
+
+justify-content: space-arround;
+joga todo o espaço em volta, com o conteudo alinhado
+
