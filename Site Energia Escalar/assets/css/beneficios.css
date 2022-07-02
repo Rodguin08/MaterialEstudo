@@ -1,0 +1,40 @@
+.beneficios-subtitulo {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #14417f;
+    margin: 5% 0 0 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.beneficios-titulo {
+    text-align: center;
+    font-size: 4.5rem;
+    font-weight: bolder;
+    color: #14417f;
+    margin: 2% 0;
+    text-transform: uppercase;
+}
+
+.container {
+    display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 10%;
+
+    
+}
+
+.beneficios-card {
+    align-items: center;
+    border: 1px solid black;
+    margin: 0 2%;
+    ;
+}
+
+.beneficios-card--titulo {
+    color: #14417f;
+    font-family: 'Open Sans';
+    text-align: center;
+}
+

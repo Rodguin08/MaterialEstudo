@@ -1,0 +1,40 @@
+/*
+Grid
+
+O grid é utilizado para mais de uma direção, como x e y ao mesmo tempo, ao contrario do flexbox.
+Os pais devem ter display: grid; para permitir posicionar os filhos livremente
+
+*/
+
+html {
+    display: grid;                  Permite que os filhos se posicionem da forma desejada
+    grid-template-columns: 3;       Define a quantidade de colunas do grid
+    grid-template-rows: 3;          Define a quantidade de linhas do grid
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://css-tricks.com/snippets/css/complete-guide-grid

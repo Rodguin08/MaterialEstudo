@@ -1,0 +1,22 @@
+Posicionamento de Elementos CSS
+
+position: static;			segue o fluxo definido no html, valor padrão
+
+
+position: relative;			relativo ao seu posicionamento inicial. Pode ser alterado com:
+top: ;
+right: ;
+bottom: ;
+left: ;
+
+position: absolute;			é relativo a página, independente de onde foi colocado, ele fica em um lugar fixo determinado na pagina
+top: ;
+right: ;
+bottom: ;
+left: ;
+
+position: fixed;			é relativo a sua tela, não depende da pagina, posicionado fixamente em um lugar da sua tela
+top: ;
+right: ;
+bottom: ;
+left: ;

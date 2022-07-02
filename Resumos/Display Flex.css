@@ -1,0 +1,40 @@
+/* 
+
+Flexbox
+
+O flexbox é utilizado para organizar elementos dentro de um container.
+O elemento pai deve ter o display: flex; assim permitindo todos os filhos a serem posicionados da forma desejada. 
+
+*/
+
+
+html {                          propriedades aplicadas nos pais
+    display: flex;              declara que o container tem display flex
+    flex-direction: column/row; define se os elementos vão ser organizados em linhas ou colunas
+    flex-wrap: wrap/nowrap;     permite que na falta de espaço, os elementos saiam do container para onde for necessario
+    flex-flow: row wrap;        atalho para flex wrap e direction
+
+    justify-content: space-between; a maneira que distribui os elementos de acordo com o container
+    align-items: center;        alinha os itens no eixo x
+    align-content: center;      alinha todos os elementos do container da maneira desejada
+    gap: 10px 15px;             linha/coluna    Define o gap entre os elementos, melhor que utilizar margin
+}
+
+body {                          propriedades aplicadas nos filhos
+    order: 0;                   define a posição do elemento em relação a sua ordem          
+    flex-grow: 0;               se todos os itens tiverem valor 1, o espaço sera distribuido igualmente a cada, mas se um deles tiver valor 2, ele ocupara o dobro de espaço em relação aos outros
+    flex-shrink: 1;             o quanto o elemento pode se deformar dentro docontainer
+    align-self: flex-end;       alinha o elemento sobrepondo outros itens
+}
+
+
+
+
+
+
+
+
+
+
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/

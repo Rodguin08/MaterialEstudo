@@ -1,0 +1,5 @@
+Ctrl + alt + UP			Cria varios cursores em diversas linhas
+Ctrl + D			Seleciona todos os elementos iguais/referencias
+Shift + Alt + DOWN		Clona a linha selecionada para a de baixo
+Ctrl + Shift + K 		Deleta a linha selecionada.
+!				Em html ele ja cria toda a base pelo emmet
