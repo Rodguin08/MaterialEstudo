@@ -1,42 +1,41 @@
-const form = document.getElementById("novoItem")            //seleciona o formulario
-const lista = document.getElementById("lista")              //seleciona a lista
-const itens = localStorage.getItem("itens") ||  []          //acessa o conteudo ja definido no localstorage ou cria uma string nova vazia
+const form = document.getElementById("novoItem")            //selecionei o formulario
+const lista = document.getElementById("lista")              //selecionei a lista de itens
+const itens = JSON.parse(localStorage.getItem("itens")) || []           //cria um objeto para ser colocado no localStorage, ou acessa os itens já existentes no localStorage
 
-itens.forEach ( (elemento) => {
-    criarElemento(elemento)
+itens.forEach( (elemento) => {
+    
 })
 
-form.addEventListener("submit", (evento) => {               //pega o form, escuta o submit(enviar) executa evento
-    evento.preventDefault()                                 //impede que o form envie as informações para a pagina como padrão
+form.addEventListener("submit", (evento) => {               //vejo se o form form foi enviado(submit) e executo o seguinte:
+    evento.preventDefault()
 
-    const nome = evento.target.elements['nome']             //acessa nome, do form
-    const quantidade = evento.target.elements['quantidade'] //acessa quantidade, do form
+    const nome = evento.target.elements['nome']             //crio variaveis só pra facilitar
+    const quantidade = evento.target.elements['quantidade']
 
-    const itemAtual = {
-        "nome": nome.value,
-        "quantidade": quantidade.value
-    }
-
-    criaElemento(itemAtual)                                 //execura criaElemento pegando o nome e quantidade colocado nos inputs do form
-
-    itens.push(itemAtual)
-
-    localStorage.setItem("itens", JSON.stringify(itens))
-
-    nome.value = ""                                         //depois que tudo é feito, define o valor do input como vazio
+    criaElemento(nome.value, quantidade.value)              //chamo criaElemento se o eventListener for executado
+    
+    nome.value = ""                                         //quando é colocado um novo elemento limpa o espaço do input. Podia ser form.nome.value, mas como ja estamos no eventlistener do form não precisa
     quantidade.value = ""
 })
 
+function criaElemento(nome, quantidade) {
+    const novoItem = document.createElement("li")           //crio um li
+    novoItem.classList.add("item")                          //adiciona classe em Item
 
-function criaElemento(nome, quantidade) {                   //função que cria os elementos da lista
-    const novoItem = document.createElement("li")           //cria a variavel que cria um li
-    novoItem.classList.add("item")                          //define a classe item em novoItem
+    const numeroItem = document.createElement("strong")     //crio strong no numero
+    numeroItem.innerHTML = quantidade                       //define o valor de numeroItem com a quantidade recebida
 
-    const numeroItem = document.createElement("strong")     //cria uma tag strong com o valor "quantidade" dentro
-    numeroItem.innerHTML = quantidade                       //o conteudo de dentro de numeroItem é quantidade
-    novoItem.appendChild(numeroItem)                        //acrescenta numeroItem em novoItem = <li><strong>quantidade</strong></li>         
+    novoItem.appendChild(numeroItem)                        //coloca numeroItem dentro de novoItem
+    novoItem.innerHTML += nome                              //define o valor de novoItem com o nome recebido
 
-    novoItem.innerHTML += nome                              //adiciona nome em novoItem = <li><strong>quantidade</strong>nome</li> 
+    lista.appendChild(novoItem)                             //coloca novoItem dentro da lista
 
-    lista.appendChild(novoItem)                             //acrescenta novoItem a lista, no caso
+    const itemAtual = {                                     //define como objeto pra poder colocar no localStorage
+        "nome": nome,
+        "quantidade": quantidade
+    }
+
+    itens.push(itemAtual)                                   //coloca itemAtual dentro do objeto itens
+        
+    localStorage.setItem("itens", JSON.stringify(itens))    //JSON.stringfy transforma itens em string pra aplicar no localStorage
 }
