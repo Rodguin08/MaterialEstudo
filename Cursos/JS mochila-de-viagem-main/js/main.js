@@ -1,41 +1,79 @@
-const form = document.getElementById("novoItem")            //selecionei o formulario
-const lista = document.getElementById("lista")              //selecionei a lista de itens
-const itens = JSON.parse(localStorage.getItem("itens")) || []           //cria um objeto para ser colocado no localStorage, ou acessa os itens já existentes no localStorage
+const form = document.getElementById("novoItem")
+const lista = document.getElementById("lista")
+const itens = JSON.parse(localStorage.getItem("itens")) || []
 
 itens.forEach( (elemento) => {
-    
-})
+    criaElemento(elemento)
+} )
 
-form.addEventListener("submit", (evento) => {               //vejo se o form form foi enviado(submit) e executo o seguinte:
+form.addEventListener("submit", (evento) => {
     evento.preventDefault()
 
-    const nome = evento.target.elements['nome']             //crio variaveis só pra facilitar
+    const nome = evento.target.elements['nome']
     const quantidade = evento.target.elements['quantidade']
 
-    criaElemento(nome.value, quantidade.value)              //chamo criaElemento se o eventListener for executado
-    
-    nome.value = ""                                         //quando é colocado um novo elemento limpa o espaço do input. Podia ser form.nome.value, mas como ja estamos no eventlistener do form não precisa
+    const existe = itens.find( elemento => elemento.nome === nome.value )
+
+    const itemAtual = {
+        "nome": nome.value,
+        "quantidade": quantidade.value
+    }
+
+    if (existe) {
+        itemAtual.id = existe.id
+        
+        atualizaElemento(itemAtual)
+
+        itens[itens.findIndex(elemento => elemento.id === existe.id)] = itemAtual
+    } else {
+        itemAtual.id = itens[itens.length -1] ? (itens[itens.length-1]).id + 1 : 0;
+
+        criaElemento(itemAtual)
+
+        itens.push(itemAtual)
+    }
+
+    localStorage.setItem("itens", JSON.stringify(itens))
+
+    nome.value = ""
     quantidade.value = ""
 })
 
-function criaElemento(nome, quantidade) {
-    const novoItem = document.createElement("li")           //crio um li
-    novoItem.classList.add("item")                          //adiciona classe em Item
+function criaElemento(item) {
+    const novoItem = document.createElement("li")
+    novoItem.classList.add("item")
 
-    const numeroItem = document.createElement("strong")     //crio strong no numero
-    numeroItem.innerHTML = quantidade                       //define o valor de numeroItem com a quantidade recebida
+    const numeroItem = document.createElement("strong")
+    numeroItem.innerHTML = item.quantidade
+    numeroItem.dataset.id = item.id
+    novoItem.appendChild(numeroItem)
+    
+    novoItem.innerHTML += item.nome
 
-    novoItem.appendChild(numeroItem)                        //coloca numeroItem dentro de novoItem
-    novoItem.innerHTML += nome                              //define o valor de novoItem com o nome recebido
+    novoItem.appendChild(botaoDeleta(item.id))
 
-    lista.appendChild(novoItem)                             //coloca novoItem dentro da lista
+    lista.appendChild(novoItem)
+}
 
-    const itemAtual = {                                     //define como objeto pra poder colocar no localStorage
-        "nome": nome,
-        "quantidade": quantidade
-    }
+function atualizaElemento(item) {
+    document.querySelector("[data-id='"+item.id+"']").innerHTML = item.quantidade
+}
 
-    itens.push(itemAtual)                                   //coloca itemAtual dentro do objeto itens
-        
-    localStorage.setItem("itens", JSON.stringify(itens))    //JSON.stringfy transforma itens em string pra aplicar no localStorage
+function botaoDeleta(id) {
+    const elementoBotao = document.createElement("button")
+    elementoBotao.innerText = "X"
+
+    elementoBotao.addEventListener("click", function() {
+        deletaElemento(this.parentNode, id)
+    })
+
+    return elementoBotao
+}
+
+function deletaElemento(tag, id) {
+    tag.remove()
+
+    itens.splice(itens.findIndex(elemento => elemento.id === id), 1)
+
+    localStorage.setItem("itens", JSON.stringify(itens))
 }

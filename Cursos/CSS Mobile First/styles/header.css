@@ -1,0 +1,12 @@
+.cabecalho__menu-hamburger {
+    width: 42px;
+    height: 42px;
+    background-image: url("../img/Menu.svg");
+    display: inline-block;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+}
+
