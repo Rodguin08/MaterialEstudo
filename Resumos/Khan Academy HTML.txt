@@ -157,7 +157,7 @@ background-color: red;
 Pseudoclasses CSS
 As pseudoclasses são funções predefinidas pelo navegador, que executam uma função quando acionadas, sempre acompanhadas da tag "a", pois são funções aplicadas em links
 por exemplo:
-a hover: quando voce passa o mouse em cima do link com essa pseudoclasse, o plano de fundo 
+a:hover quando voce passa o mouse em cima do link com essa pseudoclasse, o plano de fundo 
 voce pode saber mais pesquisando sobre no Google
 						
 
