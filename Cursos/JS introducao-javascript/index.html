@@ -40,7 +40,7 @@
 						<td class="info-gordura">10</td>
 						<td class="info-imc">0</td>
 					</tr>
-
+					
 					<tr class="paciente">
 						<td class="info-nome">João</td>
 						<td class="info-peso">80</td>
@@ -56,7 +56,7 @@
 						<td class="info-gordura">14</td>
 						<td class="info-imc">0</td>
 					</tr>
-
+					
 					<tr class="paciente">
 						<td class="info-nome">Douglas</td>
 						<td class="info-peso">85</td>
@@ -73,13 +73,15 @@
 					</tr>
 				</tbody>
 			</table>
+			<span id="erro-ajax" class="invisivel">Erro ao buscar os pacientes</span>
+			<button id="buscar-paciente" class="botao bto-principal">Buscar paciente</button>
 		</section>
 		
 		<section class="container">
 			<h2 id="titulo-form">Adicionar novo paciente</h2>
-
+			
 			<ul id="mensagens-erro">
-
+				
 			</ul>
 			<form id="form-adiciona">
 				<div class="grupo">
@@ -110,6 +112,7 @@
 	<script src="js/form.js"></script>
 	<script src="js/remover-paciente.js"></script>
 	<script src="js/filtra.js"></script>
+	<script src="js/buscar-paciente.js"></script>
 </body>
 
 </html>
