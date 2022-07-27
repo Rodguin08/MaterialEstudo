@@ -7,7 +7,19 @@ class NegociacaoController {
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
 
-        this._listaNegociacoes = new ListaNegociacoes(model => this._negociacoesView.update(model));     //atribui uma nova negociação em _listaNegociacoes
+        let self = this
+        this._listaNegociacoes = new Proxy(new ListaNegociacoes(), {
+            get(target, prop, reciver) {
+                if(['adiciona', "esvazia"].includes(prop) && typeof(target[prop] == typeof(Function))){
+                    return function() {
+                        console.log(`Interceptando ${prop}`)
+                        Reflect.apply(target[prop], target, arguments)
+                        self._negociacoesView.update(target)
+                    }
+                }
+                return Reflect.get(target, prop, reciver)
+            }
+        })   
 
         this._negociacoesView = new NegociacoesView($('#negociacoesView'));                              //atribui a tabela em _negociacoesView
         this._negociacoesView.update(this._listaNegociacoes);                                            //chama o metodo .update com o valor _mensagem dentro de NegociacaoController pra sobreescrever o template atual de view.js através de mensagemView    
