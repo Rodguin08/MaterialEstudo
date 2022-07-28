@@ -1,4 +1,4 @@
-class DateHelper {                  //converte data no formato desejado
+class DateHelper {
     
     constructor() {
         
@@ -6,6 +6,7 @@ class DateHelper {                  //converte data no formato desejado
     }
     
     static dataParaTexto(data) {
+        
         return `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`;
     }
     
@@ -16,5 +17,4 @@ class DateHelper {                  //converte data no formato desejado
              
         return new Date(...texto.split('-').map((item, indice) => item - indice % 2));
     }
-    
 }

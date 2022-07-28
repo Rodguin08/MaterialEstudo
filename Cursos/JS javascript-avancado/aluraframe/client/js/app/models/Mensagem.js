@@ -1,4 +1,4 @@
-class Mensagem {                        //modelo de mensagem, que possibilita modificação de seu valor pra ser acessado por NegociacaoController
+class Mensagem {
     
     constructor(texto='') {
         

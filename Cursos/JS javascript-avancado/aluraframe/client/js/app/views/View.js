@@ -1,4 +1,4 @@
-class View {            // é acessado por NegociacoesView e MensagensView
+class View {
     
     constructor(elemento) {
         
@@ -11,7 +11,6 @@ class View {            // é acessado por NegociacoesView e MensagensView
     }
     
     update(model) {
-        
         this._elemento.innerHTML = this.template(model);
     }
 }
