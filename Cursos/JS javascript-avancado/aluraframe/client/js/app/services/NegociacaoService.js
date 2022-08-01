@@ -1,52 +1,68 @@
 class NegociacaoService {
-    obterNegociacoesDaSemana(cb) {
-        let xhr = new XMLHttpRequest()
-
-        xhr.open('GET', "negociacoes/semana")
-        xhr.onreadystatechange = () => {
-            if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                    cb(null, JSON.parse(xhr.responseText).map(objeto => new Negociacao(new Date(objeto.data), objeto.quantidade, objeto.valor)).forEach(negociacao => this._listaNegociacoes.adiciona(negociacao)))
-                }else {
-                    console.log(xhr.responseText)
-                    this._mensagem.texto = "Não foi possível obter as negociações."
-                }
-            }
-        }
-        xhr.send()
+    
+    constructor() {
+        
+        this._http = new HttpService();
     }
-
-    obterNegociacoesDaSemanaAnterior(cb) {
-        let xhr = new XMLHttpRequest()
-
-        xhr.open('GET', "negociacoes/anterior")
-        xhr.onreadystatechange = () => {
-            if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                    cb(null, JSON.parse(xhr.responseText).map(objeto => new Negociacao(new Date(objeto.data), objeto.quantidade, objeto.valor)).forEach(negociacao => this._listaNegociacoes.adiciona(negociacao)))
-                }else {
-                    console.log(xhr.responseText)
-                    this._mensagem.texto = "Não foi possível obter as negociações."
-                }
-            }
-        }
-        xhr.send()
+    
+    obterNegociacoesDaSemana() {
+               
+        return this._http
+            .get('negociacoes/semana')
+            .then(negociacoes => {
+                console.log(negociacoes);
+                return negociacoes.map(objeto => new Negociacao(new Date(objeto.data), objeto.quantidade, objeto.valor));
+            })
+            .catch(erro => {
+                console.log(erro);
+                throw new Error('Não foi possível obter as negociações da semana');
+            });  
     }
-
-    obterNegociacoesDaSemanaRetrasada(cb) {
-        let xhr = new XMLHttpRequest()
-
-        xhr.open('GET', "negociacoes/retrasada")
-        xhr.onreadystatechange = () => {
-            if(xhr.readyState == 4){
-                if(xhr.status == 200){
-                    cb(null, JSON.parse(xhr.responseText).map(objeto => new Negociacao(new Date(objeto.data), objeto.quantidade, objeto.valor)).forEach(negociacao => this._listaNegociacoes.adiciona(negociacao)))
-                }else {
-                    console.log(xhr.responseText)
-                    this._mensagem.texto = "Não foi possível obter as negociações."
-                }
-            }
-        }
-        xhr.send()
+    
+    obterNegociacoesDaSemanaAnterior() {
+               
+        return this._http
+            .get('negociacoes/anterior')
+            .then(negociacoes => {
+                console.log(negociacoes);
+                return negociacoes.map(objeto => new Negociacao(new Date(objeto.data), objeto.quantidade, objeto.valor));
+            })
+            .catch(erro => {
+                console.log(erro);
+                throw new Error('Não foi possível obter as negociações da semana anterior');
+            });   
     }
+    
+    obterNegociacoesDaSemanaRetrasada() {
+               
+        return this._http
+            .get('negociacoes/retrasada')
+            .then(negociacoes => {
+                console.log(negociacoes);
+                return negociacoes.map(objeto => new Negociacao(new Date(objeto.data), objeto.quantidade, objeto.valor));
+            })
+            .catch(erro => {
+                console.log(erro);
+                throw new Error('Não foi possível obter as negociações da semana retrasada');
+            });  
+        
+    }
+    
+    obterNegociacoes() {
+        
+        return Promise.all([
+            this.obterNegociacoesDaSemana(),
+            this.obterNegociacoesDaSemanaAnterior(),
+            this.obterNegociacoesDaSemanaRetrasada()
+        ]).then(periodos => {
+
+            let negociacoes = periodos
+                .reduce((dados, periodo) => dados.concat(periodo), [])
+                .map(dado => new Negociacao(new Date(dado.data), dado.quantidade, dado.valor ));
+
+            return negociacoes;
+        }).catch(erro => {
+            throw new Error(erro);
+        });
+	} 
 }

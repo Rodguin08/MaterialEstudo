@@ -3,37 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Exercicio</title>
+    <title>Dissecando uma promise</title>
 </head>
 
 <body>
     <script>
 
-        class Funcionario {
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve('PROMISSE RESOLVIDA'), 5000);
+        });
 
-            constructor(email) {
-                this._email = email;
-            }
-
-            get email() {
-                return this._email;
-            }
-
-            set email(email) {
-                this._email = email;
-            }
-        }
-
-        let funcProxy = new Proxy(new Funcionario("abc@abc.com"), {
-            set(target, prop, value, receiver) {
-                console.log(prop)
-                console.log(`Email antigo: ${target[prop]} Email Novo: ${value}`)
-                // return Reflect.set(target, prop, value, receiver)
-            }
-        })
-
-        funcProxy.email = "123@123.com"
-
+        promise.then(resultado => console.log(resultado));
+        console.log('FIM');
     </script>
 </body>
 
