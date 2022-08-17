@@ -6,7 +6,5 @@
         "noImplicitAny": true
     },
 
-    "include": [
-        "app/**/*"
-    ]
+    "include": ["app/**/*"]
 }
