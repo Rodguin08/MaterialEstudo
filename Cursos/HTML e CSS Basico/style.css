@@ -151,3 +151,7 @@ body {
 .lista__link:active {
     color: var(purple);
 }
+
+body {
+    background-color: #004396;
+}
