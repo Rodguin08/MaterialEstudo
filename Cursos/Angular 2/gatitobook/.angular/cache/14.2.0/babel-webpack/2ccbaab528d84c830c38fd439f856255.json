@@ -1,0 +1,1 @@
+{"ast":null,"code":"const removeTrailingSlashes = input => {\n  // in order to avoid regexp redos detection\n  let output = input;\n\n  while (output.endsWith('/')) {\n    output = output.slice(0, -1);\n  }\n\n  return output;\n};\n\nmodule.exports = removeTrailingSlashes;","map":null,"metadata":{},"sourceType":"script"}

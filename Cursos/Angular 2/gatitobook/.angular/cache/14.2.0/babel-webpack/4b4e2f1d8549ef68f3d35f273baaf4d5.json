@@ -1,0 +1,1 @@
+{"ast":null,"code":"const {\n  applyExtends,\n  cjsPlatformShim,\n  Parser,\n  processArgv\n} = require('../build/index.cjs');\n\nmodule.exports = {\n  applyExtends: (config, cwd, mergeExtends) => {\n    return applyExtends(config, cwd, mergeExtends, cjsPlatformShim);\n  },\n  hideBin: processArgv.hideBin,\n  Parser\n};","map":null,"metadata":{},"sourceType":"script"}

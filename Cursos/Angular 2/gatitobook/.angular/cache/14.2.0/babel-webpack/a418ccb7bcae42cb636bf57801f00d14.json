@@ -1,0 +1,1 @@
+{"ast":null,"code":"var path = require('path');\n\nvar uniqueSlug = require('unique-slug');\n\nmodule.exports = function (filepath, prefix, uniq) {\n  return path.join(filepath, (prefix ? prefix + '-' : '') + uniqueSlug(uniq));\n};","map":null,"metadata":{},"sourceType":"script"}

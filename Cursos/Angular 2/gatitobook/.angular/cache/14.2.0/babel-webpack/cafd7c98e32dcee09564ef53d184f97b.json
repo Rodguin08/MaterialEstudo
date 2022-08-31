@@ -1,0 +1,1 @@
+{"ast":null,"code":"const platform = process.env.__FAKE_TESTING_PLATFORM__ || process.platform;\nmodule.exports = platform === 'win32';","map":null,"metadata":{},"sourceType":"script"}

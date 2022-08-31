@@ -1,0 +1,1 @@
+{"ast":null,"code":"'use strict';\n\nconst onetime = require('onetime');\n\nconst signalExit = require('signal-exit');\n\nmodule.exports = onetime(() => {\n  signalExit(() => {\n    process.stderr.write('\\u001B[?25h');\n  }, {\n    alwaysLast: true\n  });\n});","map":null,"metadata":{},"sourceType":"script"}

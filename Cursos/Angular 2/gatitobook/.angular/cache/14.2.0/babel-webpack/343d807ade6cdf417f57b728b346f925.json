@@ -1,0 +1,1 @@
+{"ast":null,"code":"class NotCachedError extends Error {\n  constructor(url) {\n    /* eslint-disable-next-line max-len */\n    super(`request to ${url} failed: cache mode is 'only-if-cached' but no cached response is available.`);\n    this.code = 'ENOTCACHED';\n  }\n\n}\n\nmodule.exports = {\n  NotCachedError\n};","map":null,"metadata":{},"sourceType":"script"}

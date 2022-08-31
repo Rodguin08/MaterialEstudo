@@ -1,0 +1,1 @@
+{"ast":null,"code":"const semver = require('semver');\n\nconst satisfies = range => {\n  return semver.satisfies(process.version, range, {\n    includePrerelease: true\n  });\n};\n\nmodule.exports = {\n  satisfies\n};","map":null,"metadata":{},"sourceType":"script"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"const isWindows = opts => (opts.fakePlatform || process.platform) === 'win32';\n\nexports.isWindows = isWindows;","map":null,"metadata":{},"sourceType":"script"}

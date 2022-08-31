@@ -1,0 +1,1 @@
+{"ast":null,"code":"{}\nexport class LoginComponent {\n  constructor() {\n    this.usuario = \"\";\n    this.senha = \"\";\n  }\n\n  ngOnInit() {}\n\n  login() {\n    console.log(this.usuario);\n    console.log(this.senha);\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

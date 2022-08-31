@@ -1,0 +1,1 @@
+{"ast":null,"code":"'use strict';\n\nmodule.exports = !!(process.env.LAMBDA_TASK_ROOT && process.env.AWS_EXECUTION_ENV || false);","map":null,"metadata":{},"sourceType":"script"}
